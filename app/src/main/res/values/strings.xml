@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NotesTakeProject</string>
+    <string name="delete">This notes will permanently delete from this device , the cloud and other synced devices.</string>
+</resources>

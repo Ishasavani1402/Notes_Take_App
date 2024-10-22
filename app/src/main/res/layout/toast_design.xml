@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_toast">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/toast_img"
+        android:padding="5dp"
+        android:src="@drawable/baseline_report_gmailerrorred_24"
+        android:layout_gravity="center_vertical"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Enter Notes!!"
+        android:textColor="@color/white"
+        android:id="@+id/toast_msg"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_gravity="center_vertical"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>
