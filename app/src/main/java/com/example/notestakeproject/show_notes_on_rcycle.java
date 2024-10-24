@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -79,6 +80,47 @@ public class show_notes_on_rcycle extends RecyclerView.Adapter<show_notes_on_rcy
                 dialog.show();
                 return true;
             }
+        });
+
+        //update notes on
+        holder.rcycle_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setContentView(R.layout.add_notes);
+                //find id
+                TextView et_title = dialog.findViewById(R.id.title);
+                TextView et_description = dialog.findViewById(R.id.description);
+                AppCompatButton add_notes = dialog.findViewById(R.id.add_notes_success);
+                et_title.setText("Update notes");
+                add_notes.setText("Update");
+                int adapter_position = holder.getAdapterPosition();
+
+                et_title.setText(structureArrayList.get(adapter_position).getTitle());
+                et_description.setText(structureArrayList.get(adapter_position).getDescription());
+                //click on add buttons
+                add_notes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String title = et_title.getText().toString();
+                        String description = et_description.getText().toString();
+                        if(!title.isEmpty() && !description.isEmpty()){
+                            Database_helper db_helper = Database_helper.getDB(view.getContext());
+                            db_helper.users_dao().update_data(new Users(structureArrayList.get(adapter_position).getTitle() , description));
+                            structureArrayList.set(adapter_position , new Users(title , description));
+                            notifyDataSetChanged();
+                            dialog.dismiss();
+
+                        }
+                        else{
+                            Toast.makeText(view.getContext(), "Please enter title and description", Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    }
+                });
+                dialog.show();
+            };
         });
     }
 
