@@ -108,8 +108,8 @@ public class show_notes_on_rcycle extends RecyclerView.Adapter<show_notes_on_rcy
                         if(!title.isEmpty() && !description.isEmpty()){
                             Database_helper db_helper = Database_helper.getDB(view.getContext());
 
-                            //get current data
-                            Users user = structureArrayList.get(adapter_position);
+//                            //get current data
+//                            Users user = structureArrayList.get(adapter_position);
                             db_helper.users_dao().update_data(new Users(structureArrayList.get(adapter_position).getId() , title , description));
                             structureArrayList.set(adapter_position , new Users(title , description));
                             notifyDataSetChanged();
