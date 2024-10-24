@@ -102,11 +102,15 @@ public class show_notes_on_rcycle extends RecyclerView.Adapter<show_notes_on_rcy
                 add_notes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        int id = structureArrayList.get(adapter_position).getId();
                         String title = et_title.getText().toString();
                         String description = et_description.getText().toString();
                         if(!title.isEmpty() && !description.isEmpty()){
                             Database_helper db_helper = Database_helper.getDB(view.getContext());
-                            db_helper.users_dao().update_data(new Users(structureArrayList.get(adapter_position).getTitle() , description));
+
+                            //get current data
+                            Users user = structureArrayList.get(adapter_position);
+                            db_helper.users_dao().update_data(new Users(structureArrayList.get(adapter_position).getId() , title , description));
                             structureArrayList.set(adapter_position , new Users(title , description));
                             notifyDataSetChanged();
                             dialog.dismiss();
@@ -114,8 +118,6 @@ public class show_notes_on_rcycle extends RecyclerView.Adapter<show_notes_on_rcy
                         }
                         else{
                             Toast.makeText(view.getContext(), "Please enter title and description", Toast.LENGTH_SHORT).show();
-
-
                         }
                     }
                 });
