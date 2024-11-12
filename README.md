@@ -4,5 +4,4 @@
 ![notes app update](https://github.com/user-attachments/assets/f6a75e70-22d2-47ca-af9c-8bb2ed2e7842)
 ![notes app after update](https://github.com/user-attachments/assets/1ee2c4b0-6aa0-4d76-96f1-2879d666241f)
 ![please add notes](https://github.com/user-attachments/assets/9940bcfd-ee39-4b83-a60c-06a3fee97810)
-![deletescreen](https://github.com/user-attachments/assets/bd329551-6644-4829-8092-fad39ba79e94)
-
+![delete note](https://github.com/user-attachments/assets/b64f1be5-9e66-449b-8723-9e76d6537ab6)
